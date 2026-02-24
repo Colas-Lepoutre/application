@@ -15,6 +15,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix
+import skops.io as sio
 
 import duckdb
 
@@ -151,5 +152,9 @@ logging.info(
 
 logging.info("Matrice de confusion:")
 logging.info(confusion_matrix(y_test, pipe.predict(X_test)))
+
+
+logging.info("Saving model...")
+sio.dump(pipe, "model.skops")
 
 logging.debug(f"\n{80 * '-'}\nFILE ENDED SUCCESSFULLY!\n{80 * '-'}")

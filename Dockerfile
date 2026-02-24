@@ -14,4 +14,4 @@ RUN uv sync
 
 COPY main.py .
 COPY src ./src
-CMD ["uv", "run", "main.py"]
+CMD ["uv", "run", "train.py"]
